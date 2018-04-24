@@ -1,24 +1,40 @@
 // share_card/pages/profile/index.js
 import http from '../../util/request.js';
+import alert from '../../util/alert.js';
+import { toast } from '../../util/alert.js';
+import router from '../../util/router.js';
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    setting:{}
+    userInfo:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (options) {    
     this.load();
   },
 
   load() {
-    http.get('setting').then(data => {
-      this.setData({ setting: data });
+    let that = this;
+    app.util.getUserInfo(function (data) {
+      const wxInfo = data.wxInfo;
+      http.post('userInfo', wxInfo)
+        .then((res) => {
+          that.setData({ userInfo: res });
+          wx.setStorageSync('attachurl', res.detail.attachurl);
+        }, err => {
+          console.log(err);
+          alert('同步信息失败')
+        }).then(() => {
+          console.log('router');
+          router.index();
+        })
     });
   },
 

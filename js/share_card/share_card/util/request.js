@@ -6,7 +6,7 @@ function request(action, method, data) {
     data = {};
   }
   if (!data.m) {
-    data.m = 'share_card';
+    data.m = 'sharecard_pc';
   }
  
   return new Promise((resolve, reject)=>{

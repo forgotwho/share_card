@@ -1,0 +1,28 @@
+{template 'common/header'}
+<form action="" method="post"  class="we7-form" role="form" enctype="multipart/form-data" id="form1">	
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">公司名称</label>
+        <div class="col-sm-8">
+            <input type="text" name="companyName" class="form-control" value="{$setting['companyName']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">工商执照注册号/统一社会信用代码</label>
+        <div class="col-sm-8">
+            <input type="text" name="companyCode" class="form-control" value="{$setting['companyCode']}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">公司地址</label>
+        <div class="col-sm-8">
+            <input type="text" name="companyAddress" class="form-control" value="{$setting['companyAddress']}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-md-offset-2 col-lg-offset-1 col-xs-12 col-sm-10 col-md-10 col-lg-11">
+            <input name="submit" type="submit" value="保存" class="btn btn-primary span3" />
+            <input type="hidden" name="token" value="{$_W['token']}" />
+        </div>
+    </div>
+</form>
+{template 'common/footer'}

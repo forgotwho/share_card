@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns="http://www.we7.cc" versionCode="">
+	<application setting="false">
+		<name><![CDATA[乐享名片PC版]]></name>
+		<identifie><![CDATA[sharecard_pc]]></identifie>
+		<version><![CDATA[1.0]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[乐享名片PC版]]></ability>
+		<description><![CDATA[乐享名片PC版]]></description>
+		<author><![CDATA[webfunny]]></author>
+		<url><![CDATA[http://bbs.we7.cc]]></url>
+	</application>
+	<platform>
+		<subscribes>
+		</subscribes>
+		<handles>
+		</handles>
+		<rule embed="false" />
+		<card embed="false" />
+		<supports>
+			<item type="webapp" />
+		</supports>
+	</platform>
+	<bindings>
+		<webapp>
+			<entry title="官网管理" do="settings" state="detail" direct="false" />
+			<entry title="用户管理" do="users" state="list" direct="false" />
+			<entry title="分类管理" do="catalogs" state="list" direct="false" />
+			<entry title="产品管理" do="products" state="list" direct="false" />
+			<entry title="公告管理" do="notices" state="list" direct="false" />
+			<entry title="评论管理" do="comments" state="list" direct="false" />
+		</webapp>
+	</bindings>
+	<permissions>
+	</permissions>
+	<install><![CDATA[install.php]]></install>
+	<uninstall><![CDATA[]]></uninstall>
+	<upgrade><![CDATA[]]></upgrade>
+</manifest>

@@ -1,2 +1,12 @@
 <!--share_card/pages/product/index.wxml-->
-<text>share_card/pages/product/index.wxml</text>
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-cells__title">产品分类</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view wx:key="show" wx:for="{{catalogs}}" wx:for-item="item">
+        <image src="{{attachurl+item.icon}}"></image>
+        <view>{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+</view>

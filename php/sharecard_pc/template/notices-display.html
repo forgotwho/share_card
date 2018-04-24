@@ -1,0 +1,61 @@
+{template 'common/header'}
+<ol class="breadcrumb we7-breadcrumb">
+    <a href="{php echo $this->createWebUrl('users')}"><i class="wi wi-back-circle"></i> </a>
+    <li><a href="{php echo $this->createWebUrl('users')}">用户管理</a></li>
+	<li><a href="#">{if $userId==""}新增用户{/if}{if $userId!=null}编辑用户{/if}</a></li>
+</ol>
+<ul class="nav nav-tabs">
+	{if $_GPC['userId']}<li {if $op == 'users'}class="active"{/if}><a href="{php echo $this->createWebUrl('users_add', array('op' => 'users','id'=>$_GPC['userId']))}">基本信息</a></li>{/if}
+	{if $_GPC['userId']}<li {if $op == 'catalogs'}class="active"{/if}><a href="{php echo $this->createWebUrl('catalogs', array('op' => 'catalogs','userId'=>$_GPC['userId']))}">分类管理</a></li>{/if}
+	{if $_GPC['userId']}<li {if $op == 'products'}class="active"{/if}><a href="{php echo $this->createWebUrl('products', array('op' => 'products','userId'=>$_GPC['userId']))}">产品管理</a></li>{/if}
+	{if $_GPC['userId']}<li {if $op == 'notices'}class="active"{/if}><a href="{php echo $this->createWebUrl('notices', array('op' => 'notices','userId'=>$_GPC['userId']))}">公告管理</a></li>{/if}
+	{if $_GPC['userId']}<li {if $op == 'comments'}class="active"{/if}><a href="{php echo $this->createWebUrl('comments', array('op' => 'comments','userId'=>$_GPC['userId']))}">评论管理</a></li>{/if}
+</ul>
+<div id="js-wesite-article-display">
+    <div class="pull-right">
+        <a href="{php echo $this->createWebUrl('notices_add',array('op' => 'notices','userId'=>$_GPC['userId']))}" class="btn btn-primary we7-padding-horizontal">+新增公告</a>
+    </div>
+    <form action="{php echo $this->createWebUrl('notices')}" method="post" class="form-inline" role="form">
+        <input type="hidden" name = "eid" value="{$_GPC['eid']}" />
+        <div class="input-group col-sm-5">
+            <input class="form-control" name="name" id="" type="text" value="{$keyword}" placeholder="请输入公告标题">
+            <span class="input-group-btn"><button class="btn btn-default"><i class="fa fa-search"></i></button></span>
+        </div>
+    </form>
+	<br/>
+    <table class="table we7-table table-hover article-list vertical-middle">
+        <col/>
+        <col/>
+        <col/>
+        <tr>
+            <th></th>
+            <th class="text-left">标题</th>
+			<th class="text-left">主图</th>
+			<th class="text-left">描述</th>
+			<th class="text-left">状态</th>
+			<th class="text-left">排序</th>
+            <th class="text-right">操作</th>
+        </tr>
+        {loop $lists $list}
+        <tr>
+            <td></td>
+            <td class="text-left">{$list['name']}</td>
+			<td class="text-left"><img src="{php echo tomedia($list['mainpic'])}" width="100" alt="" /></td>
+			<td class="text-left">{$list['description']}</td>
+			<td class="text-left">{if $list['status']=="01"}启用{/if}{if $list['status']=="00"}停用{/if}</td>
+			<td class="text-left">{$list['priority']}</td>
+            <td>
+                <div class="link-group">
+					<a href="{php echo $this->createWebUrl('comments', array('notice_id' => $list['id'],'op' => 'comments','userId'=>$_GPC['userId']))}">评论列表</a>
+                    <a href="{php echo $this->createWebUrl('notices_add', array('id' => $list['id'],'op' => 'notices','userId'=>$_GPC['userId']))}">编辑</a>
+                    <a href="{php echo $this->createWebUrl('notices_delete', array('id' => $list['id'],'op' => 'notices','userId'=>$_GPC['userId']))}" class="del">删除</a>
+                </div>
+            </td>
+        </tr>
+        {/loop}
+    </table>
+    <div class="text-right we7-margin-top">
+        {$pager}
+    </div>
+</div>
+{template 'common/footer'}

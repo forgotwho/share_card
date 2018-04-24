@@ -1,14 +1,22 @@
 <?php
+/**
+ * 乐享名片PC版模块定义
+ *
+ * @author webfunny
+ * @url http://bbs.we7.cc
+ */
 defined('IN_IA') or exit('Access Denied');
 
-class Share_cardModule extends WeModule {
+class Sharecard_pcModule extends WeModule {
 
-	public function welcomeDisplay($menus = array()) {
-		//这里来展示DIY管理界面
-		include $this->template('welcome');
-	}
+	
+	//public function welcomeDisplay($menus = array()) {
+	//	global $_W, $_GPC;
+	//	//这里来展示DIY管理界面
+	//	include $this->template('welcome');
+	//}
 
-	public function settingsDisplay1($settings) {
+	public function settingsDisplay($settings) {
 		global $_W, $_GPC;
 
 		load()->classs('cloudapi');

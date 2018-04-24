@@ -1,0 +1,53 @@
+{template 'common/header'}
+<div id="js-wesite-article-display">
+    <div class="pull-right">
+        <a href="{php echo $this->createWebUrl('users_add')}" class="btn btn-primary we7-padding-horizontal">+新增用户</a>
+    </div>
+    <form action="{php echo $this->createWebUrl('users')}" method="post" class="form-inline" role="form">
+        <input type="hidden" name = "eid" value="{$_GPC['eid']}" />
+        <div class="input-group col-sm-5">
+            <input class="form-control" name="name" id="" type="text" value="{$keyword}" placeholder="请输入姓名">
+            <span class="input-group-btn"><button class="btn btn-default"><i class="fa fa-search"></i></button></span>
+        </div>
+    </form>
+	<br/>
+    <table class="table we7-table table-hover article-list vertical-middle">
+        <col/>
+        <col/>
+        <col/>
+        <tr>
+            <th></th>
+            <th class="text-left">姓名</th>
+			<th class="text-left">手机号</th>
+			<th class="text-left">邮箱</th>
+			<th class="text-left">地址</th>
+			<th class="text-left">性别</th>
+			<th class="text-left">状态</th>
+            <th class="text-right">操作</th>
+        </tr>
+        {loop $lists $list}
+        <tr>
+            <td></td>
+            <td class="text-left">{$list['name']}</td>
+			<td class="text-left">{$list['value']['mobile']}</td>
+			<td class="text-left">{$list['value']['email']}</td>
+			<td class="text-left">{$list['value']['address']}</td>
+			<td class="text-left">{$list['value']['gender']}</td>
+			<td class="text-left">{if $list['status']=="01"}已开通{/if}{if $list['status']=="02"}已关闭{/if}{if $list['status']=="00"}待审核{/if}</td>
+            <td>
+                <div class="link-group">
+					{if $list['status']=='02' || $list['status']=='00'}<a href="{php echo $this->createWebUrl('users_update', array('id' => $list['id'],'status' => '01'))}" class="del">开通</a>{/if}
+					{if $list['status']=='01'}<a href="{php echo $this->createWebUrl('users_update', array('id' => $list['id'],'status' => '02'))}" class="del">关闭</a>{/if}
+					<a href="{php echo $this->createWebUrl('users_card-detail', array('id' => $list['id']))}">名片详情</a>
+                    <a href="{php echo $this->createWebUrl('users_add', array('id' => $list['id']))}">编辑</a>
+                    <a href="{php echo $this->createWebUrl('users_delete', array('id' => $list['id']))}" class="del">删除</a>
+                </div>
+            </td>
+        </tr>
+        {/loop}
+    </table>
+    <div class="text-right we7-margin-top">
+        {$pager}
+    </div>
+</div>
+{template 'common/footer'}

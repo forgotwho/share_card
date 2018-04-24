@@ -1,0 +1,126 @@
+{template 'common/header'}
+<ol class="breadcrumb we7-breadcrumb">
+    <a href="{php echo $this->createWebUrl('users')}"><i class="wi wi-back-circle"></i> </a>
+    <li><a href="{php echo $this->createWebUrl('users')}">用户管理</a></li>
+	<li><a href="#">{if $id==""}新增用户{/if}{if $id!=null}编辑用户{/if}</a></li>
+</ol>
+<ul class="nav nav-tabs">
+	{if $_GPC['id']}<li {if $op == 'users'}class="active"{/if}><a href="{php echo $this->createWebUrl('users_add', array('op' => 'users','id'=>$_GPC['id']))}">基本信息</a></li>{/if}
+	{if $_GPC['id']}<li {if $op == 'catalogs'}class="active"{/if}><a href="{php echo $this->createWebUrl('catalogs', array('op' => 'catalogs','userId'=>$_GPC['id']))}">分类管理</a></li>{/if}
+	{if $_GPC['id']}<li {if $op == 'products'}class="active"{/if}><a href="{php echo $this->createWebUrl('products', array('op' => 'products','userId'=>$_GPC['id']))}">产品管理</a></li>{/if}
+	{if $_GPC['id']}<li {if $op == 'notices'}class="active"{/if}><a href="{php echo $this->createWebUrl('notices', array('op' => 'notices','userId'=>$_GPC['id']))}">公告管理</a></li>{/if}
+	{if $_GPC['id']}<li {if $op == 'comments'}class="active"{/if}><a href="{php echo $this->createWebUrl('comments', array('op' => 'comments','userId'=>$_GPC['id']))}">评论管理</a></li>{/if}
+</ul>
+<form action="{php echo $this->createWebUrl('users_add')}" method="post" class="article-post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{$id}">
+    <div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">姓名</label>
+        <div class="col-sm-8">
+            <input type="text" name="name" class="form-control" value="{$list['detail']['name']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">照片</label>
+        <div class="col-sm-8">
+            {php echo tpl_form_field_image('headerImg', $list['detail']['headerImg'], '');}
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">手机</label>
+        <div class="col-sm-8">
+            <input type="text" name="mobile" class="form-control" value="{$list['detail']['mobile']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">微信</label>
+        <div class="col-sm-8">
+            <input type="text" name="weixin" class="form-control" value="{$list['detail']['weixin']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">二维码</label>
+        <div class="col-sm-8">
+            {php echo tpl_form_field_image('weixinQrcode', $list['detail']['weixinQrcode'], '');}
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">性别</label>
+        <div class="col-sm-8">
+            <input type="text" name="gender" class="form-control" value="{$list['detail']['gender']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">邮箱</label>
+        <div class="col-sm-8">
+            <input type="text" name="email" class="form-control" value="{$list['detail']['email']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">QQ</label>
+        <div class="col-sm-8">
+            <input type="text" name="qq" class="form-control" value="{$list['detail']['qq']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">地址</label>
+        <div class="col-sm-8">
+            <input type="text" name="address" class="form-control" value="{$list['detail']['address']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">个性签名</label>
+        <div class="col-sm-8">
+            <input type="text" name="sign" class="form-control" value="{$list['detail']['sign']}" />
+        </div>
+    </div>
+	 <div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">个人风采</label>
+        <div class="col-sm-8">
+            {php echo tpl_form_field_multi_image('show', $list['detail']['show'], '');}
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">标签</label>
+        <div class="col-sm-8">
+            <input type="text" name="tag" class="form-control" value="{$list['detail']['tag']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">公司名称</label>
+        <div class="col-sm-8">
+            <input type="text" name="companyName" class="form-control" value="{$list['detail']['companyName']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">工商执照注册号/统一社会信用代码</label>
+        <div class="col-sm-8">
+            <input type="text" name="companyCode" class="form-control" value="{$list['detail']['companyCode']}" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">公司地址</label>
+        <div class="col-sm-8">
+            <input type="text" name="companyAddress" class="form-control" value="{$list['detail']['companyAddress']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label" style="text-align:left;">职位</label>
+        <div class="col-sm-8">
+            <input type="text" name="title" class="form-control" value="{$list['detail']['title']}" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label for="" class="control-label col-sm-2">状态</label>
+        <div class="form-controls col-sm-8">
+			<select class="form-control" name="status">
+				<option value="">请选择</option>
+				<option value="00" {if $list['status']=='00'}selected{/if}>待审核</option>
+				<option value="01" {if $list['status']=='01'}selected{/if}>开通</option>
+				<option value="02" {if $list['status']=='02'}selected{/if}>关闭</option>
+			</select>
+        </div>
+    </div>
+    <input name="submit" value="保存" class="btn btn-primary btn-submit" type="submit">
+    <input type="hidden" name="token" value="{$_W['token']}" />
+</form>
+{template 'common/footer'}

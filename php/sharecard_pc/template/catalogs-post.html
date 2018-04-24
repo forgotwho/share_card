@@ -1,0 +1,44 @@
+{template 'common/header'}
+<ol class="breadcrumb we7-breadcrumb">
+    <a href="{php echo $this->createWebUrl('catalogs',array('op' => 'catalogs','userId'=>$_GPC['userId']))}"><i class="wi wi-back-circle"></i> </a>
+    <li><a href="{php echo $this->createWebUrl('catalogs',array('op' => 'catalogs','userId'=>$_GPC['userId']))}">分类管理</a></li>
+    <li><a href="#">{if $id==""}分类新增{/if}{if $id!=null}分类编辑{/if}</a></li>
+</ol>
+<form action="{php echo $this->createWebUrl('catalogs_add')}" method="post" class="article-post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{$id}">
+    <div class="form-group">
+        <label for="" class="control-label col-sm-2">名称</label>
+        <div class="form-controls col-sm-8">
+            <input type="text" class="form-control" name="name" value="{$list['name']}">
+        </div>
+    </div>
+	<div class="form-group">
+        <label for="" class="control-label col-sm-2">图标</label>
+        <div class="form-controls col-sm-8">
+			{php echo tpl_form_field_image('icon', $list['icon'], '');}
+        </div>
+    </div>
+	<div class="form-group">
+        <label for="" class="control-label col-sm-2">描述</label>
+        <div class="form-controls col-sm-8">
+            <input type="text" class="form-control" name="description" value="{$list['description']}">
+        </div>
+    </div>
+	<div class="form-group">
+        <label for="" class="control-label col-sm-2">状态</label>
+        <div class="form-controls col-sm-8">
+			<input type="radio" name="status" value="01" {if $list['status']=="01"}checked{/if}>启用
+			<input type="radio" name="status" value="00" {if $list['status']=="00"}checked{/if}>停用
+        </div>
+    </div>
+	<div class="form-group">
+        <label for="" class="control-label col-sm-2">排序</label>
+        <div class="form-controls col-sm-8">
+            <input type="text" class="form-control" name="priority" value="{$list['priority']}">
+        </div>
+    </div>
+    <input name="submit" value="保存" class="btn btn-primary btn-submit" type="submit">
+    <input type="hidden" name="token" value="{$_W['token']}" />
+	<input type="hidden" name="userId" value="{$userId}" />
+</form>
+{template 'common/footer'}

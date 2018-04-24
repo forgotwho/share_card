@@ -4,14 +4,14 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd">
-          <image class="weui-textarea" src="{{setting.attachurl+setting.headerImg}}"></image>
+          <image class="weui-textarea" src="{{userInfo.detail.attachurl+userInfo.detail.headerImg}}"></image>
         </view>
       </view>
       <view class="weui-cell">
         <view class="weui-cell__bd">
-          <view style='text-align:center;font-size:18pt;'>{{setting.name}}</view>
-          <view style='text-align:center;font-size:14pt;'>{{setting.title}}</view>
-          <view style='text-align:center;font-size:12pt;'>{{setting.companyName}}</view>
+          <view style='text-align:center;font-size:18pt;'>{{userInfo.detail.name}}</view>
+          <view style='text-align:center;font-size:14pt;'>{{userInfo.detail.title}}</view>
+          <view style='text-align:center;font-size:12pt;'>{{userInfo.detail.companyName}}</view>
         </view>
       </view>
     </view>
@@ -22,7 +22,7 @@
           <view class="weui-label">手机</view>
         </view>
         <view class="weui-cell__bd">
-          <view class="weui-input">{{setting.mobile}}</view>
+          <view class="weui-input">{{userInfo.detail.mobile}}</view>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -30,7 +30,7 @@
           <view class="weui-label">微信</view>
         </view>
         <view class="weui-cell__bd">
-          <view class="weui-input">{{setting.weixin}}</view>
+          <view class="weui-input">{{userInfo.detail.weixin}}</view>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -38,7 +38,7 @@
           <view class="weui-label">邮箱</view>
         </view>
         <view class="weui-cell__bd">
-          <view class="weui-input">{{setting.email}}</view>
+          <view class="weui-input">{{userInfo.detail.email}}</view>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -46,7 +46,7 @@
           <view class="weui-label">公司</view>
         </view>
         <view class="weui-cell__bd">
-          <view class="weui-input">{{setting.companyName}}</view>
+          <view class="weui-input">{{userInfo.detail.companyName}}</view>
         </view>
       </view>
       <view class="weui-cell weui-cell_input">
@@ -54,7 +54,7 @@
           <view class="weui-label">地址</view>
         </view>
         <view class="weui-cell__bd">
-          <view class="weui-textarea">{{setting.address}}</view>
+          <view class="weui-input">{{userInfo.detail.address}}</view>
         </view>
       </view>
     </view>
@@ -65,7 +65,7 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd">
-          <view class="weui-textarea">{{setting.sign}}</view>
+          <view class="weui-textarea">{{userInfo.detail.sign}}</view>
         </view>
       </view>
     </view>
@@ -73,8 +73,8 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd">
-          <view wx:key="show" wx:for="{{setting.show}}" wx:for-item="item">
-            <image class="weui-textarea" src="{{setting.attachurl+item}}"></image>
+          <view wx:key="show" wx:for="{{userInfo.detail.show}}" wx:for-item="item">
+            <image class="weui-textarea" src="{{userInfo.detail.attachurl+item}}"></image>
           </view>
         </view>
       </view>
