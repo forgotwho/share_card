@@ -24,12 +24,23 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "测试页面",
+					"pathName": "share_card/pages/product/index",
+					"query": ""
+				}
+			]
 		}
 	}
 }

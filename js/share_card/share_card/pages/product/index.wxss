@@ -1,1 +1,10 @@
 /* share_card/pages/product/index.wxss */
+.placeholder{
+    margin: 5px;
+    padding: 0 10px;
+    text-align: center;  
+}
+
+.flex_img{
+    width: 100%; 
+}

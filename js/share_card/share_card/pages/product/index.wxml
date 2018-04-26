@@ -1,12 +1,15 @@
 <!--share_card/pages/product/index.wxml-->
 <view class="page">
-  <view class="page__bd">
-    <view class="weui-cells__title">产品分类</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view wx:key="show" wx:for="{{catalogs}}" wx:for-item="item">
-        <image src="{{attachurl+item.icon}}"></image>
-        <view>{{item.name}}</view>
-      </view>
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-flex">
+      <block wx:key="show" wx:for="{{catalogs}}" wx:for-item="item">
+        <view class="weui-flex__item">
+          <view class="placeholder">
+            <image class='flex_img' mode='aspectFit' src="{{attachurl+item.icon}}"></image>
+            <view>{{item.name}}</view>
+          </view>
+        </view>
+      </block>
     </view>
   </view>
 </view>

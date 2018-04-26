@@ -20,19 +20,27 @@
     "list": [
       {
         "pagePath": "share_card/pages/profile/index",
-        "text": "名片"
+        "text": "名片",
+        "iconPath": "share_card/resource/image/card_02.png",
+        "selectedIconPath": "share_card/resource/image/card_01.png"
       },
       {
         "pagePath": "share_card/pages/product/index",
-        "text": "产品"
+        "text": "产品",
+        "iconPath": "share_card/resource/image/product_02.png",
+        "selectedIconPath": "share_card/resource/image/product_01.png"
       },
       {
         "pagePath": "share_card/pages/notice/index",
-        "text": "朋友圈"
+        "text": "朋友圈",
+        "iconPath": "share_card/resource/image/circle_02.png",
+        "selectedIconPath": "share_card/resource/image/circle_01.png"
       },
       {
         "pagePath": "share_card/pages/website/index",
-        "text": "官网"
+        "text": "官网",
+        "iconPath": "share_card/resource/image/home_02.png",
+        "selectedIconPath": "share_card/resource/image/home_01.png"
       }
     ]
   }
